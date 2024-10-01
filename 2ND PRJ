@@ -1,0 +1,30 @@
+tasks = {}
+
+def add_task(task_id, task_name, due_date):
+    tasks[task_id] = {
+        'task_name': task_name,
+        'due_date': due_date,
+        'completed': False
+    }
+
+def view_tasks():
+    for task_id, task_info in tasks.items():
+        status = "Completed" if task_info['completed'] else "Pending"
+        print(f"ID: {task_id}, Task: {task_info['task_name']}, Due: {task_info['due_date']}, Status: {status}")
+
+def update_task(task_id, task_name=None, due_date=None, completed=None):
+    if task_id in tasks:
+if task_name:
+            tasks[task_id]['task_name'] = task_name
+        if due_date:
+            tasks[task_id]['due_date'] = due_date
+        if completed is not None:
+            tasks[task_id]['completed'] = completed
+    else:
+        print("Task ID not found.")
+
+def delete_task(task_id):
+    if task_id in tasks:
+        del tasks[task_id]
+    else:
+        print("Task ID not found.")
