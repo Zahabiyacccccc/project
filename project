@@ -1,0 +1,19 @@
+students = {}
+
+def add_student(name, student_id, scores):
+    students[student_id] = {
+        'name': name,
+        'scores': scores
+    }
+
+def calculate_grade(scores):
+    return sum(scores) / len(scores)
+
+def display_students():for student_id, student_info in students.items():
+        grade = calculate_grade(student_info['scores'])
+        print(f"Name: {student_info['name']}, ID: {student_id}, Grade: {grade}")
+
+# Example usage
+add_student("Alice", "S001", [85, 90, 78])
+add_student("Bob", "S002", [88, 92, 80])
+display_students()
